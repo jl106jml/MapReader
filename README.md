@@ -5,7 +5,7 @@
     </p>
     <h2>A computer vision pipeline for the semantic exploration of maps/images at scale</h2>
 </div>
- 
+
 <p align="center">
     <a href="https://github.com/Living-with-machines/MapReader/workflows/Continuous%20integration/badge.svg">
         <img alt="Continuous integration badge" src="https://github.com/Living-with-machines/MapReader/workflows/Continuous%20integration/badge.svg">
@@ -34,13 +34,13 @@
 MapReader is an end-to-end computer vision (CV) pipeline for analyzing large collections of images/maps. It has two main components: preprocessing/annotation and training/inference:
 
 <p align="center">
-  <img src="./figs/MapReader_pipeline.png" 
+  <img src="./figs/MapReader_pipeline.png"
         alt="MapReader pipeline" width="70%" align="center">
 </p>
 
 MapReader provides a set of tools to:
 
-- **load** images/maps stored locally or **retrieve** maps via web-servers (e.g., tileservers which can be used to retrieve maps from OpenStreetMap (OSM), the National Library of Scotland (NLS), or elsewhere). :warning: Refer to the [credits and re-use terms](#credits-and-re-use-terms) section if you are using digitized maps or metadata provided by NLS. 
+- **load** images/maps stored locally or **retrieve** maps via web-servers (e.g., tileservers which can be used to retrieve maps from OpenStreetMap (OSM), the National Library of Scotland (NLS), or elsewhere). :warning: Refer to the [credits and re-use terms](#credits-and-re-use-terms) section if you are using digitized maps or metadata provided by NLS.
 - **preprocess** images/maps (e.g., divide them into patches, resampling the images, removing borders outside the neatline or reprojecting the map).
 - annotate images/maps or their patches (i.e. slices of an image/map) using an **interactive annotation tool**.
 - **train, fine-tune, and evaluate** various CV models.
@@ -52,7 +52,7 @@ MapReader provides a set of tools to:
 Below is an example of MapReader CV model output (see [the paper on MapReader](https://arxiv.org/abs/2111.15592) for more details):
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1899856/144105429-f4f02d49-7b2a-4cdb-ae57-19d077aab713.png" 
+  <img src="https://user-images.githubusercontent.com/1899856/144105429-f4f02d49-7b2a-4cdb-ae57-19d077aab713.png"
         alt="British railspace and buildings as predicted by a MapReader computer vision model" width="100%" align="center">
 </p>
 
@@ -81,7 +81,7 @@ Table of contents
         * **Classifier:** train/fine-tuned PyTorch CV models.
       - [classification_plant_phenotype](./examples/classification_plant_phenotype)
         * **Goal:** train/fine-tune PyTorch CV classifiers on plant patches in images (plant phenotyping example).
-        * **Dataset:** Example images taken from the openly accessible `CVPPP2014_LSV_training_data` dataset available from https://www.plant-phenotyping.org/datasets-download. 
+        * **Dataset:** Example images taken from the openly accessible `CVPPP2014_LSV_training_data` dataset available from https://www.plant-phenotyping.org/datasets-download.
         * **Data access:** locally stored
         * **Annotations** are done on plant patches (i.e., slices of each plant image).
         * **Classifier:** train/fine-tuned PyTorch CV models.
@@ -91,7 +91,7 @@ Table of contents
   - [Metadata](#metadata): the metadata files are stored at [mapreader/persistent_data](./mapreader/persistent_data). Read the re-use terms in this section.
   - [Acknowledgements](#acknowledgements)
 
-## Installation
+## Installation for local setup
 
 ### Set up a conda environment
 
@@ -124,6 +124,13 @@ and to work with maps:
 ```bash
 pip install 'git+https://github.com/Living-with-machines/MapReader.git#egg=MapReader[maps]'
 ```
+* Adding a `ipython` kernel to use in the [Tutorials](#table-of-contents)
+
+```bash
+python -m ipykernel install --user --name "<name-of-your-kernel>" --display-name "<Python (my kernel)>"
+```
+* Continue with the [Tutorials](./examples)!
+
 
 * ⚠️ On *Windows*, you might need to do:
 
@@ -142,7 +149,7 @@ conda install git
 pip install git+https://github.com/Living-with-machines/MapReader.git
 
 # open Jupyter Notebook (if you want to test/work with the notebooks in "examples" directory)
-cd /path/to/MapReader 
+cd /path/to/MapReader
 jupyter notebook
 ```
 
@@ -159,7 +166,7 @@ python -m ipykernel install --user --name mr_py38 --display-name "Python (mr_py3
 * Clone `mapreader` source code:
 
 ```bash
-git clone https://github.com/Living-with-machines/MapReader.git 
+git clone https://github.com/Living-with-machines/MapReader.git
 ```
 
 * Install:
@@ -176,12 +183,12 @@ cd /path/to/MapReader
 pip install -e ."[maps]"
 ```
 
-* Adding a `ipython` kernel to use in the [Tutorials](#table-of-contents)
+* Adding a `ipython` kernel to use in the [Tutorials](./examples)
 
 ```bash
 python -m ipykernel install --user --name "<name-of-your-kernel>" --display-name "<Python (my kernel)>"
 ```
-* Continue with the [Tutorials](#table-of-contents)!
+* Continue with the [Tutorials](./examples)!
 
 ## How to cite MapReader
 
@@ -197,7 +204,7 @@ and in BibTeX:
 
 ```bibtex
 @misc{hosseini2021mapreader,
-      title={MapReader: A Computer Vision Pipeline for the Semantic Exploration of Maps at Scale}, 
+      title={MapReader: A Computer Vision Pipeline for the Semantic Exploration of Maps at Scale},
       author={Kasra Hosseini and Daniel C. S. Wilson and Kaspar Beelen and Katherine McDonough},
       year={2021},
       eprint={2111.15592},
@@ -206,7 +213,7 @@ and in BibTeX:
 }
 ```
 
-## Credits and re-use terms 
+## Credits and re-use terms
 
 ### Digitized maps
 
@@ -222,5 +229,5 @@ We have provided some metadata files in `mapreader/persistent_data`. For all the
 
 ### Acknowledgements
 
-This work was supported by Living with Machines (AHRC grant AH/S01179X/1) and The Alan Turing Institute (EPSRC grant EP/N510129/1). 
+This work was supported by Living with Machines (AHRC grant AH/S01179X/1) and The Alan Turing Institute (EPSRC grant EP/N510129/1).
 Living with Machines, funded by the UK Research and Innovation (UKRI) Strategic Priority Fund, is a multidisciplinary collaboration delivered by the Arts and Humanities Research Council (AHRC), with The Alan Turing Institute, the British Library and the Universities of Cambridge, East Anglia, Exeter, and Queen Mary University of London.
